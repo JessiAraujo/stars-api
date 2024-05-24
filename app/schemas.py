@@ -35,6 +35,7 @@ class User(UserBase):
     class Config:
         orm_mode = True
 
+
 class JobTitle(BaseModel):
     id: int
     title: str
@@ -43,25 +44,26 @@ class JobTitle(BaseModel):
     class Config:
         orm_mode = True
 
+
 class VolunteerBase(BaseModel):
     name: str
     linkedin: str
     # email: str
     is_active: bool
 
+
 class VolunteerCreate(VolunteerBase):
     name: str
     email: str
     masked_email: Optional[str] = None
     is_active: Optional[bool] = True
-    jobtitle_id: int 
+    jobtitle_id: int
+
 
 class Volunteer(VolunteerBase):
     id: int
-    jobtitle_id: int 
+    jobtitle_id: int
     masked_email: Optional[str] = None
-
 
     class Config:
         orm_mode = True
-
